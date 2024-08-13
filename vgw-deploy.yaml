@@ -1,1 +1,3 @@
-
+template-file-path: vgw-deploy.yaml
+parameters: {}
+tags: {}
