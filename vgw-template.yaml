@@ -9,11 +9,6 @@ Resources:
     Properties:
       VpcId:
         Ref: "EC2VPC00vpc06cc596be170acd6000iuPQH"
-      Tags:
-      - Value: "direct_connect_test"
-        Key: "Project"
-      - Value: "direct_connect_test"
-        Key: "Name"
   EC2VPNGateway00vgw094b3bbfb7a5ea00e00tOxPE:
     UpdateReplacePolicy: "Retain"
     Type: "AWS::EC2::VPNGateway"
@@ -21,29 +16,16 @@ Resources:
     Properties:
       Type: "ipsec.1"
       AmazonSideAsn: 65001
-      Tags:
-      - Value: "direct_connect_test"
-        Key: "Project"
-      - Value: "arihito.hagiwara"
-        Key: "Owner"
-      - Value: "direct-connect-test"
-        Key: "Name"
   EC2VPC00vpc06cc596be170acd6000iuPQH:
     UpdateReplacePolicy: "Retain"
     Type: "AWS::EC2::VPC"
     DeletionPolicy: "Retain"
     Properties:
-      CidrBlock: "10.150.0.0/24"
+      CidrBlock:
+        Ref: VpcCidrBlockParam
       EnableDnsSupport: true
       InstanceTenancy: "default"
       EnableDnsHostnames: true
-      Tags:
-      - Value: "arihito.hagiwara"
-        Key: "Owner"
-      - Value: "direct_connect_test"
-        Key: "Name"
-      - Value: "direct_connect_test"
-        Key: "Project"
   EC2Route00rtb02b426d6cd2b0a0ea00zxRiK:
     UpdateReplacePolicy: "Retain"
     Type: "AWS::EC2::Route"
