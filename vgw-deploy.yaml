@@ -1,9 +1,5 @@
 template-file-path: vgw-template.yaml
-parameters:
-  VpcCidrBlockParam:
-    Type: String
-    Default: "10.150.0.0/24"
-    Description: cidr range for vpc
+parameters: {}
 tags:
   Project : 'direct_connect_test'
   Name: 'direct_connect_test'
