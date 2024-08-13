@@ -1,0 +1,57 @@
+---
+Metadata:
+  TemplateId: "arn:aws:cloudformation:ap-northeast-1:033185075863:generatedTemplate/43b99c82-d6bd-4227-a372-b77d450003ef"
+Resources:
+  EC2RouteTable00rtb02b426d6cd2b0a0ea00kYOO9:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::RouteTable"
+    DeletionPolicy: "Retain"
+    Properties:
+      VpcId:
+        Ref: "EC2VPC00vpc06cc596be170acd6000iuPQH"
+      Tags:
+      - Value: "direct_connect_test"
+        Key: "Project"
+      - Value: "direct_connect_test"
+        Key: "Name"
+  EC2VPNGateway00vgw094b3bbfb7a5ea00e00tOxPE:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::VPNGateway"
+    DeletionPolicy: "Retain"
+    Properties:
+      Type: "ipsec.1"
+      AmazonSideAsn: 65001
+      Tags:
+      - Value: "direct_connect_test"
+        Key: "Project"
+      - Value: "arihito.hagiwara"
+        Key: "Owner"
+      - Value: "direct-connect-test"
+        Key: "Name"
+  EC2VPC00vpc06cc596be170acd6000iuPQH:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::VPC"
+    DeletionPolicy: "Retain"
+    Properties:
+      CidrBlock: "10.150.0.0/24"
+      EnableDnsSupport: true
+      InstanceTenancy: "default"
+      EnableDnsHostnames: true
+      Tags:
+      - Value: "arihito.hagiwara"
+        Key: "Owner"
+      - Value: "direct_connect_test"
+        Key: "Name"
+      - Value: "direct_connect_test"
+        Key: "Project"
+  EC2Route00rtb02b426d6cd2b0a0ea00zxRiK:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::Route"
+    DeletionPolicy: "Retain"
+    Properties:
+      RouteTableId:
+        Ref: "EC2RouteTable00rtb02b426d6cd2b0a0ea00kYOO9"
+      DestinationCidrBlock: "0.0.0.0/0"
+      GatewayId:
+        Ref: "EC2VPNGateway00vgw094b3bbfb7a5ea00e00tOxPE"
+      VpcEndpointId: "vgw-094b3bbfb7a5ea00e"
