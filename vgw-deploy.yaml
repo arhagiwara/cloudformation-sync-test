@@ -1,3 +1,6 @@
 template-file-path: vgw-template.yaml
 parameters: {}
-tags: {}
+tags:
+    Project : 'direct_connect_test'
+    Name: 'direct_connect_test'
+    Owner: 'arihito.hagiwara'
